@@ -21,6 +21,8 @@
 		69B6902B2BFC08770016D36A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69B6902A2BFC08770016D36A /* GoogleService-Info.plist */; };
 		69B6902E2BFC0A7A0016D36A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 69B6902D2BFC0A7A0016D36A /* GoogleSignIn */; };
 		69B690302BFC0A7A0016D36A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69B6902F2BFC0A7A0016D36A /* GoogleSignInSwift */; };
+		69DDC54D2C053A6A007011D6 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DDC54C2C053A6A007011D6 /* SnapsViewController.swift */; };
+		69DDC54F2C054168007011D6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DDC54E2C054168007011D6 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		69B690152BFBF1400016D36A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69B690172BFBF1400016D36A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B6902A2BFC08770016D36A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69DDC54C2C053A6A007011D6 /* SnapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
+		69DDC54E2C054168007011D6 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				69B690092BFBF13E0016D36A /* AppDelegate.swift */,
+				69DDC54E2C054168007011D6 /* ImageViewController.swift */,
 				69B6900B2BFBF13E0016D36A /* SceneDelegate.swift */,
 				69B6900D2BFBF13E0016D36A /* iniciarSesionViewController.swift */,
+				69DDC54C2C053A6A007011D6 /* SnapsViewController.swift */,
 				69B6900F2BFBF13E0016D36A /* Main.storyboard */,
 				69B690122BFBF1400016D36A /* Assets.xcassets */,
 				69B690142BFBF1400016D36A /* LaunchScreen.storyboard */,
@@ -169,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69DDC54D2C053A6A007011D6 /* SnapsViewController.swift in Sources */,
 				69B6900E2BFBF13E0016D36A /* iniciarSesionViewController.swift in Sources */,
+				69DDC54F2C054168007011D6 /* ImageViewController.swift in Sources */,
 				69B6900A2BFBF13E0016D36A /* AppDelegate.swift in Sources */,
 				69B6900C2BFBF13E0016D36A /* SceneDelegate.swift in Sources */,
 			);
