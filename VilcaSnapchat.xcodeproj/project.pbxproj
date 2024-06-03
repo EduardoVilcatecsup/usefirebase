@@ -21,6 +21,8 @@
 		69B6902B2BFC08770016D36A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69B6902A2BFC08770016D36A /* GoogleService-Info.plist */; };
 		69B6902E2BFC0A7A0016D36A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 69B6902D2BFC0A7A0016D36A /* GoogleSignIn */; };
 		69B690302BFC0A7A0016D36A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69B6902F2BFC0A7A0016D36A /* GoogleSignInSwift */; };
+		69BAA9AA2C0E7B3E0032E76B /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BAA9A92C0E7B3E0032E76B /* Snap.swift */; };
+		69BAA9AC2C0E83050032E76B /* VerSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BAA9AB2C0E83050032E76B /* VerSnapViewController.swift */; };
 		69CBCC1D2C0A42A70025F03F /* ElegirUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBCC1C2C0A42A70025F03F /* ElegirUsuarioViewController.swift */; };
 		69CBCC212C0A519F0025F03F /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBCC202C0A519F0025F03F /* Usuario.swift */; };
 		69CBCC232C0A5A3C0025F03F /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CBCC222C0A5A3C0025F03F /* RegistroViewController.swift */; };
@@ -38,6 +40,8 @@
 		69B690152BFBF1400016D36A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69B690172BFBF1400016D36A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B6902A2BFC08770016D36A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69BAA9A92C0E7B3E0032E76B /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		69BAA9AB2C0E83050032E76B /* VerSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerSnapViewController.swift; sourceTree = "<group>"; };
 		69CBCC1C2C0A42A70025F03F /* ElegirUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegirUsuarioViewController.swift; sourceTree = "<group>"; };
 		69CBCC202C0A519F0025F03F /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		69CBCC222C0A5A3C0025F03F /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				69B6900D2BFBF13E0016D36A /* iniciarSesionViewController.swift */,
 				69DDC54E2C054168007011D6 /* ImageViewController.swift */,
 				69CBCC222C0A5A3C0025F03F /* RegistroViewController.swift */,
+				69BAA9AB2C0E83050032E76B /* VerSnapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				69CBCC202C0A519F0025F03F /* Usuario.swift */,
+				69BAA9A92C0E7B3E0032E76B /* Snap.swift */,
 			);
 			path = Modelos;
 			sourceTree = "<group>";
@@ -202,7 +208,9 @@
 			files = (
 				69DDC54D2C053A6A007011D6 /* SnapsViewController.swift in Sources */,
 				69B6900E2BFBF13E0016D36A /* iniciarSesionViewController.swift in Sources */,
+				69BAA9AA2C0E7B3E0032E76B /* Snap.swift in Sources */,
 				69CBCC212C0A519F0025F03F /* Usuario.swift in Sources */,
+				69BAA9AC2C0E83050032E76B /* VerSnapViewController.swift in Sources */,
 				69DDC54F2C054168007011D6 /* ImageViewController.swift in Sources */,
 				69B6900A2BFBF13E0016D36A /* AppDelegate.swift in Sources */,
 				69CBCC232C0A5A3C0025F03F /* RegistroViewController.swift in Sources */,

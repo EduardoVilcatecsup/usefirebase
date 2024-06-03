@@ -1,32 +1,58 @@
-//
-//  SnapsViewController.swift
-//  VilcaSnapchat
-//
-//  Created by Eduardo Vilca on 27/05/24.
-//
-
 import UIKit
+import Firebase
 
-class SnapsViewController: UIViewController {
+class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBAction func cerrarSesionTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBOutlet weak var tablaSnaps: UITableView!
+    var snaps: [Snap] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return snaps.count
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let snap = snaps[indexPath.row]
+        performSegue(withIdentifier: "versnapsegue", sender: snap)
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let snap = snaps[indexPath.row]
+        cell.textLabel?.text = snap.from
+        return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func cerrarSesionTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            dismiss(animated: true, completion: nil)
+        } catch {
+            print("Error al cerrar sesión: \(error)")
+        }
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "versnapsegue" {
+            let siguienteVC = segue.destination as! VerSnapViewController
+            siguienteVC.snap = sender as! Snap
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tablaSnaps.delegate = self
+        tablaSnaps.dataSource = self
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("usuarios").child(uid).child("snaps").observe(DataEventType.childAdded, with: { (snapshot) in
+            if let snapDict = snapshot.value as? [String: AnyObject] {
+                let snap = Snap()
+                snap.imagenURL = snapDict["imagenURL"] as? String ?? ""
+                snap.from = snapDict["from"] as? String ?? ""
+                snap.descrip = snapDict["descripcion"] as? String ?? ""
+                self.snaps.append(snap)
+                self.tablaSnaps.reloadData()
+            }
+        }) { (error) in
+            print("Error al recuperar los snaps: \(error.localizedDescription)")
+        }
+    }
 }
