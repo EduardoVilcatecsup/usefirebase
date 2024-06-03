@@ -41,18 +41,27 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tablaSnaps.delegate = self
         tablaSnaps.dataSource = self
         
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("usuarios").child(uid).child("snaps").observe(DataEventType.childAdded, with: { (snapshot) in
-            if let snapDict = snapshot.value as? [String: AnyObject] {
+        
+        Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("snaps").observe(DataEventType.childAdded, with: { (snapshot) in
                 let snap = Snap()
-                snap.imagenURL = snapDict["imagenURL"] as? String ?? ""
-                snap.from = snapDict["from"] as? String ?? ""
-                snap.descrip = snapDict["descripcion"] as? String ?? ""
+            snap.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
+                snap.from = (snapshot.value as! NSDictionary)["from"] as! String
+                snap.descrip = (snapshot.value as! NSDictionary)["descripcion"] as! String
+                snap.id = snapshot.key
                 self.snaps.append(snap)
                 self.tablaSnaps.reloadData()
+        })
+        
+        Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("snaps").observe(DataEventType.childRemoved, with: { (snapshot) in
+            var iterator = 0
+            for snap in self.snaps {
+                if snap.id == snapshot.key{
+                    self.snaps.remove(at: iterator)
+                }
+                iterator += 1
             }
-        }) { (error) in
-            print("Error al recuperar los snaps: \(error.localizedDescription)")
-        }
+            self.tablaSnaps.reloadData()
+        })
     }
 }
+
